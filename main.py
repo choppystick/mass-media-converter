@@ -61,7 +61,7 @@ def convert_directory(input_dir, output_dir, progress_dict, dir_index):
 
             # Fixed ffmpeg command with proper quotation and parameters
             ffmpeg_command = (
-                f'ffmpeg -n -i "{input_path}" -vf '
+                f'ffmpeg -y -i "{input_path}" -vf '
                 'zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,'
                 'tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,'
                 f'format=yuv420p -x264-params colormatrix=bt709 -crf 21 -c:a copy "{output_path}" '
